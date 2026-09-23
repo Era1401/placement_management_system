@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fefae0">
+  <meta name="description" content="Placement cell overview and activity dashboard">
+  <title>Pathway · Placement portal</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#overview" aria-label="Pathway dashboard home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span><strong>pathway</strong><small>PLACEMENT PORTAL</small></span>
+      </a>
+      <div class="nav-heading">WORKSPACE</div>
+      <nav class="nav-list">
+        <a class="nav-link active" href="#overview"><span>◫</span>Overview</a>
+        <a class="nav-link" href="#students"><span>◎</span>Students</a>
+        <a class="nav-link" href="#companies"><span>▣</span>Companies</a>
+        <a class="nav-link" href="#jobs"><span>▤</span>Job openings</a>
+        <a class="nav-link" href="#applications"><span>↗</span>Applications</a>
+        <a class="nav-link" href="#interviews"><span>◷</span>Interviews</a>
+        <a class="nav-link" href="#placements"><span>✧</span>Placements</a>
+      </nav>
+      <div class="nav-divider"></div>
+      <div class="nav-heading">MANAGE</div>
+      <a class="nav-link" href="#overview"><span>⚙</span>Settings</a>
+      <div class="help-card">
+        <span class="help-icon">?</span>
+        <strong>Need a hand?</strong>
+        <span>Placement activity at a glance</span>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <div>
+          <h1>Good morning, Placement team <span aria-hidden="true">✦</span></h1>
+          <p>Here’s what’s happening across your placement cell.</p>
+        </div>
+        <div class="topbar-actions">
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search students, jobs…" aria-label="Search dashboard"></label>
+          <button class="icon-button" id="refresh" type="button" aria-label="Refresh dashboard" title="Refresh">↻</button>
+          <div class="profile"><span class="avatar avatar-peach">PT</span><span><strong>Placement team</strong><small>Administrator</small></span></div>
+        </div>
+      </header>
+      <div class="toolbar">
+        <span id="today-label"></span>
+        <span class="live-status" id="connection-status"><i></i> Connecting…</span>
+      </div>
+
+      <section class="stats-grid" aria-label="Placement statistics">
+        <article class="stat-card" id="students"><span class="stat-icon lilac">♙</span><span class="stat-label">Total students</span><strong class="stat-value" data-stat="students">—</strong><span class="stat-foot">Registered in the system</span></article>
+        <article class="stat-card" id="companies"><span class="stat-icon green">▣</span><span class="stat-label">Partner companies</span><strong class="stat-value" data-stat="companies">—</strong><span class="stat-foot">Company partners</span></article>
+        <article class="stat-card" id="jobs"><span class="stat-icon peach">▤</span><span class="stat-label">Open positions</span><strong class="stat-value" data-stat="jobs">—</strong><span class="stat-foot">Currently accepting applications</span></article>
+        <article class="stat-card" id="placements-stat"><span class="stat-icon blue">✧</span><span class="stat-label">Successful placements</span><strong class="stat-value" data-stat="placements">—</strong><span class="stat-foot">Recorded placements</span></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel trends-panel">
+          <div class="panel-heading"><div><h2>Placement trends</h2><p>Recorded placements over the last six months</p></div><span class="legend"><i></i> Placements</span></div>
+          <div class="chart" id="placement-chart" aria-label="Placement count by month"><div class="chart-loading">Loading placement history…</div></div>
+        </article>
+        <article class="panel interviews-panel" id="interviews">
+          <div class="panel-heading"><div><h2>Upcoming interviews</h2><p>Your next candidate conversations</p></div><span class="panel-link">From interviews</span></div>
+          <div class="interview-list" id="interview-list"><div class="empty-state">Loading interviews…</div></div>
+        </article>
+        <article class="panel pipeline-panel" id="applications">
+          <div class="panel-heading"><div><h2>Application pipeline</h2><p>Candidate applications by current status</p></div><span class="panel-link" id="application-total">Loading…</span></div>
+          <div class="pipeline-list" id="pipeline-list"><div class="empty-state">Loading applications…</div></div>
+          <div class="panel-note" id="pipeline-note">Counts are based on application records.</div>
+        </article>
+        <article class="panel placements-panel" id="placements">
+          <div class="panel-heading"><div><h2>Recent placements</h2><p>Latest placement records</p></div><span class="panel-link" id="placement-total">Loading…</span></div>
+          <div class="placement-list" id="placement-list"><div class="empty-state">Loading placements…</div></div>
+          <div class="panel-note" id="placement-note"></div>
+        </article>
+      </section>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+  </div>
+</body>
+</html>
